@@ -1,0 +1,9 @@
+#!/bin/bash
+PLAYLIST='linklist'
+while true; do
+	echo -n "Total links: "
+	MAX="`wc "$PLAYLIST" | awk '{print $1}'`"
+	NR=$(($RANDOM % $MAX))
+	NR=$(($NR+1))
+	mplayer "`sed "${NR}q;d" "$PLAYLIST"`"
+done
